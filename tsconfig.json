@@ -34,7 +34,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/pomposition-api.js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

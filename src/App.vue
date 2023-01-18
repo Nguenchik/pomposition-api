@@ -8,14 +8,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
-// export default {
-//   name: 'App',
-//   components: {
-//     HelloWorld
-//   }
-// }
-
-import { defineComponent, ref } from './pomposition-api'
+import { defineComponent, ref } from '@/pomposition-api.ts'
 
 export default defineComponent({
   name: 'App',
