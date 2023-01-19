@@ -53,4 +53,28 @@ Object.defineProperty(RefImpl.prototype, 'value', {
   }
 })
 
-export const ref = (val: unknown) => new (RefImpl as any)(val)
+// export const ref = (val: unknown) => new (RefImpl as any)(val)
+
+export const ref = (value: unknown): Record<string, unknown> => {
+  return new Proxy(
+    {
+      value
+    },
+    {
+      get (target: Record<string, unknown>, key: string) {
+        if (key === 'value') {
+          return target.value
+        }
+        return target[key]
+      },
+      set (target, key: string, newValue) {
+        if (key === 'value') {
+          target.value = newValue
+        } else {
+          target[key] = newValue
+        }
+        return true
+      }
+    }
+  )
+}
